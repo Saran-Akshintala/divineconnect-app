@@ -1,0 +1,29 @@
+version: '3.8'
+
+# Development override for docker-compose.yml
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ../backend:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+      DEBUG: divineconnect:*
+    command: npm run dev
+
+  # Development database with sample data
+  postgres:
+    environment:
+      POSTGRES_DB: divineconnect_dev_db
+    volumes:
+      - postgres_dev_data:/var/lib/postgresql/data
+      - ./seed-data.sql:/docker-entrypoint-initdb.d/seed-data.sql
+
+volumes:
+  postgres_dev_data:
+    driver: local

@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "DivineConnect",
+    "slug": "divineconnect-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#FF6B35"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.divineconnect.app"
+    },
+    "android": {
+      "package": "com.divineconnect.app",
+      "versionCode": 1
+    }
+  }
+}
